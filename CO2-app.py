@@ -7,6 +7,10 @@ Created on Thu Dec 18 15:14:13 2025
 import streamlit as st
 import pandas as pd
 import pickle
+from sklearn.pipeline import Pipeline
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.linear_model import LinearRegressio
 
 # 1. Load the model and data
 @st.cache_resource
@@ -50,4 +54,5 @@ if st.button("Predict CO2"):
     
     prediction = model.predict(input_data)
     
+
     st.success(f"The estimated CO2 emission is **{prediction[0]:.2f} g/km**")
